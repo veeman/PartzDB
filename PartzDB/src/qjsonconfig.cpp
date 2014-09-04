@@ -1,13 +1,23 @@
 #include "stdafx.h"
 #include "qjsonconfig.h"
 
-QJsonConfig::QJsonConfig()
-  : QJsonObject()
+QJsonConfig::QJsonConfig(const QString &fileName)
+  : QJsonObject(), _fileName(fileName)
 {
-  qDebug() << "QJsonConfig constructor";
+  
 }
 
 QJsonConfig::~QJsonConfig()
 {
-  qDebug() << "QJsonConfig destructor";
+  
+}
+
+bool QJsonConfig::load(const QString &fileName)
+{
+  return true;
+}
+
+void QJsonConfig::setFileName(const QString &fileName)
+{
+  _fileName = fileName;
 }

@@ -20,16 +20,17 @@ void QUiAppLoader::load(void)
   switch (_state)
   {
     case INIT:
-      qAppLogger.reset(new QLoggerModel(0));
+      qApp->internalLogger.reset(new QLoggerModel(0));
       break;
     case CONFIG:
-      qAppConfig.reset(new QJsonConfig());
+      qApp->internalConfig.reset(new QJsonConfig());
+      qApp->internalConfig->load(*QJSONCONFIG_PATH);
       break;
     case PLUGINS:
       break;
     case SYSTEMTRAY:
-      qAppSystemTray.reset(new QSystemTrayIcon(QIcon(*QSYSTEMTRAY_ICON)));
-      qAppSystemTray->setVisible(true);
+      qApp->internalSystemTray.reset(new QSystemTrayIcon(QIcon(*QSYSTEMTRAY_ICON)));
+      qApp->internalSystemTray->setVisible(true);
       break;
     case MAINWINDOW:
       {

@@ -3,21 +3,18 @@
 */
 #include "stdafx.h"
 
-QScopedPointer<QLoggerModel>    qAppLogger;
-QScopedPointer<QSystemTrayIcon> qAppSystemTray;
-QScopedPointer<QJsonConfig>     qAppConfig;
-
 // Strings
 const char* STR_TIMEFORMAT = "hh:mm:ss.zzz";                      //!< TODO
 const char* STR_UNKNOWN = "unknown";                              //!< TODO
 const char* STR_VERSION = "Version: %0 %1";                       //!< TODO
 
-// resources
+// resources and file path
 const char* RES_IMGSPLASHSCREEN = ":/res/splash.png";             //!< TODO
 const char* RES_ICON_MAIN = ":/res/appicon.ico";                  //!< TODO
 const char* RES_ICON_INFO = ":/res/info.png";                     //!< TODO
 const char* RES_ICON_WARNING = ":/res/warning.png";               //!< TODO
 const char* RES_ICON_CRITICAL = ":/res/critical.png";             //!< TODO
+const char* PATH_CONFIG = "/config.json";                         //!< TODO
 
 // font family
 const char* FONT_COURIERNEW = "Courier New";                      //!< TODO
@@ -37,7 +34,4 @@ const char** QUIABOUT_BGRES = &RES_IMGSPLASHSCREEN;               //!< TODO
 
 const char** QSYSTEMTRAY_ICON = &RES_ICON_MAIN;                   //!< TODO
 
-/*!
-    \def qAppRegisterMessageHandle
-    \brief Register an application message handler.
-*/
+const char** QJSONCONFIG_PATH = &PATH_CONFIG;                     //!< TODO

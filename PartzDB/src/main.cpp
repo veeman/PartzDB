@@ -3,6 +3,7 @@
 */
 #include "stdafx.h"
 #include "quiapploader.h"
+#include "qintsingleapplication.h"
 
 /*!
     \brief Application entry point.
@@ -24,13 +25,13 @@ static bool sendInstanceMessage(void);
 
 int main(int argc, char *argv[])
 {
-    QScopedPointer<QtSingleApplication> app(new QtSingleApplication(argc, argv));
+    QScopedPointer<QIntSingleApplication> app(new QIntSingleApplication(argc, argv));
     if (sendInstanceMessage())
       return 0x420; // already running
 
     // create apploader instance, will destroyed by the qt engine
     QUiAppLoader *win = new QUiAppLoader();
-    qAppRegisterMessageHandle(win, SLOT(instanceMessage(const QString &)));
+    app->registerMessageHandle(win, SLOT(instanceMessage(const QString &)));
     win->show();
 
     // enter main event loop
@@ -39,13 +40,12 @@ int main(int argc, char *argv[])
 
 static bool sendInstanceMessage(void)
 {
-  QtSingleApplication *app = qobject_cast<QtSingleApplication*>(qApp);
-  if (!app)
+  if (!qApp)
     return false;
 
   // build argument list and send it to other instance
-  const QStringList argList = app->arguments();
+  const QStringList argList = qApp->arguments();
   const QString argMsg = argList.join(" ");
 
-  return app->sendMessage(argMsg);
+  return qApp->sendMessage(argMsg);
 }

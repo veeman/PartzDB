@@ -11,13 +11,7 @@
 #include <QtCore/QDebug>
 
 #include <QtSingleApplication>
-
-#include "qloggermodel.h"
-#include "qjsonconfig.h"
-
-extern QScopedPointer<QLoggerModel>    qAppLogger;
-extern QScopedPointer<QSystemTrayIcon> qAppSystemTray;
-extern QScopedPointer<QJsonConfig>     qAppConfig;
+#include "qintsingleapplication.h"
 
 extern const char*  STR_VERSION;
 
@@ -34,5 +28,4 @@ extern const char** QUIABOUT_BGRES;
 
 extern const char** QSYSTEMTRAY_ICON;
 
-#define qAppRegisterMessageHandle(member, slot) \
-      QObject::connect(qApp, SIGNAL(messageReceived(const QString&)), member, slot)
+extern const char** QJSONCONFIG_PATH;

@@ -92,6 +92,15 @@
     <ClCompile Include="src\qjsonconfig.cpp">
       <Filter>Source Dateien</Filter>
     </ClCompile>
+    <ClCompile Include="src\qintsingleapplication.cpp">
+      <Filter>Source Dateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_qintsingleapplication.cpp">
+      <Filter>Generierte Dateien\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_qintsingleapplication.cpp">
+      <Filter>Generierte Dateien\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="quimain.qrc">
@@ -113,6 +122,9 @@
       <Filter>Header Dateien</Filter>
     </CustomBuild>
     <CustomBuild Include="src\quiabout.h">
+      <Filter>Header Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\qintsingleapplication.h">
       <Filter>Header Dateien</Filter>
     </CustomBuild>
   </ItemGroup>
