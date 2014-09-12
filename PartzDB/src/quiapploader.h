@@ -13,10 +13,11 @@ public:
 
   enum LoadState
   {
+    PREINIT,
     INIT,
     CONFIG,
     PLUGINS,
-    SYSTEMTRAY,
+    SETUP,
     MAINWINDOW,
     DONE
   };

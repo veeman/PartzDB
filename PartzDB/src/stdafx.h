@@ -26,6 +26,9 @@ extern const char** QLOGGERVIEW_STR_UNKNOWN;
 extern const char** QUIABOUT_FONT;
 extern const char** QUIABOUT_BGRES;
 
+extern const char** QUIAPPLOADER_STR_INIT;
+extern const char** QUIAPPLOADER_STR_LOADCONFIG;
+
 extern const char** QSYSTEMTRAY_ICON;
 
 extern const char** QJSONCONFIG_PATH;

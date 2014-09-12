@@ -47,8 +47,6 @@ static const Qt::GlobalColor FOREGROUNDCOLORS[] = { Qt::darkBlue,
 QLoggerModel::QLoggerModel(QObject *parent)
   : QStandardItemModel(0, 0, parent)
 {
-    qDebug() << "QLoggerModel constructor";
-
     // load icons
     const QStyle *style = qApp->style();
     const quint32 iconOffset = static_cast<quint32>(QStyle::SP_MessageBoxInformation);
@@ -68,7 +66,6 @@ QLoggerModel::QLoggerModel(QObject *parent)
 */
 QLoggerModel::~QLoggerModel()
 {
-    qDebug() << "QLoggerModel destructor";
 }
 
 /*!
@@ -110,7 +107,7 @@ void QLoggerModel::log(const Level level, const QString &message, const QObject 
 {
     QString module;
     if (sender)
-        module = sender->objectName();
+      module = sender->metaObject()->className();
     log(level, message, module);
 }
 

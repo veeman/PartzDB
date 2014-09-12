@@ -8,6 +8,9 @@ const char* STR_TIMEFORMAT = "hh:mm:ss.zzz";                      //!< TODO
 const char* STR_UNKNOWN = "unknown";                              //!< TODO
 const char* STR_VERSION = "Version: %0 %1";                       //!< TODO
 
+const char* STR_INITIALIZE = "Initalize";                         //!< TODO
+const char* STR_LOAD_CONFIG = "Load Configuration";               //!< TODO
+
 // resources and file path
 const char* RES_IMGSPLASHSCREEN = ":/res/splash.png";             //!< TODO
 const char* RES_ICON_MAIN = ":/res/appicon.ico";                  //!< TODO
@@ -31,6 +34,9 @@ const char** QLOGGERVIEW_STR_UNKNOWN = &STR_UNKNOWN;              //!< TODO
 
 const char** QUIABOUT_FONT = &FONT_ARIAL;                         //!< TODO
 const char** QUIABOUT_BGRES = &RES_IMGSPLASHSCREEN;               //!< TODO
+
+const char** QUIAPPLOADER_STR_INIT = &STR_INITIALIZE;             //!< TODO
+const char** QUIAPPLOADER_STR_LOADCONFIG = &STR_LOAD_CONFIG;      //!< TODO
 
 const char** QSYSTEMTRAY_ICON = &RES_ICON_MAIN;                   //!< TODO
 

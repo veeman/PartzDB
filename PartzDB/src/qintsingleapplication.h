@@ -21,8 +21,8 @@ public:
     QMetaObject::Connection registerMessageHandle(const QObject *receiver, const char *member);
       
     QScopedPointer<QLoggerModel>    internalLogger;
-    QScopedPointer<QSystemTrayIcon> internalSystemTray;
     QScopedPointer<QJsonConfig>     internalConfig;
+    QScopedPointer<QSystemTrayIcon> internalSystemTray;
 };
 
 inline 

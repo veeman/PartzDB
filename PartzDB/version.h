@@ -4,10 +4,10 @@
 #define QUOTE(name) #name
 #define STRQ(macro) QUOTE(macro)
 
-#define VERSION_MAJOR     1
-#define VERSION_MINOR     0
-#define VERSION_REVISION  0
-#define VERSION_BUILD     71
+#define VERSION_MAJOR		1
+#define VERSION_MINOR		0
+#define VERSION_REVISION	0
+#define VERSION_BUILD		2
 
 #if _DEBUG
   #if _WIN64
