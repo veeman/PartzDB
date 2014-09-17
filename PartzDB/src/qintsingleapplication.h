@@ -4,12 +4,12 @@
 #include <QtSingleApplication>
 #include "qloggermodel.h"
 #include "qjsonconfig.h"
+#include "qprivateapplicationpointer.h"
 
 #if defined(qApp)
 #undef qApp
 #endif
 #define qApp (static_cast<QIntSingleApplication*>(QCoreApplication::instance()))
-
 
 class QIntSingleApplication : public QtSingleApplication
 {
@@ -17,12 +17,15 @@ class QIntSingleApplication : public QtSingleApplication
 
 public:
     QIntSingleApplication(int &argc, char **argv, bool GUIenabled = true);
+    ~QIntSingleApplication();
+    
+    static QString buildRelativeFilePath(const QString &fileName);
 
     QMetaObject::Connection registerMessageHandle(const QObject *receiver, const char *member);
-      
-    QScopedPointer<QLoggerModel>    internalLogger;
-    QScopedPointer<QJsonConfig>     internalConfig;
-    QScopedPointer<QSystemTrayIcon> internalSystemTray;
+
+    QPrivateApplicationPointer<QLoggerModel>    internalLogger;
+    QPrivateApplicationPointer<QJsonConfig>     internalConfig;
+    QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray;
 };
 
 inline 

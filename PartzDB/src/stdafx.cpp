@@ -11,13 +11,17 @@ const char* STR_VERSION = "Version: %0 %1";                       //!< TODO
 const char* STR_INITIALIZE = "Initalize";                         //!< TODO
 const char* STR_LOAD_CONFIG = "Load Configuration";               //!< TODO
 
+const char* STR_CFG_NOTFOUND = "Configuration file '%0' not found. Use default settings.";  //!< TODO
+const char* STR_CFG_FAILED = "Failed to load configuration file '%0'. %1";  //!< TODO
+const char* STR_CFG_LOADED = "Configuration file '%0' loaded.";  //!< TODO
+
 // resources and file path
 const char* RES_IMGSPLASHSCREEN = ":/res/splash.png";             //!< TODO
 const char* RES_ICON_MAIN = ":/res/appicon.ico";                  //!< TODO
 const char* RES_ICON_INFO = ":/res/info.png";                     //!< TODO
 const char* RES_ICON_WARNING = ":/res/warning.png";               //!< TODO
 const char* RES_ICON_CRITICAL = ":/res/critical.png";             //!< TODO
-const char* PATH_CONFIG = "/config.json";                         //!< TODO
+const char* PATH_CONFIG = "config.json";                          //!< TODO
 
 // font family
 const char* FONT_COURIERNEW = "Courier New";                      //!< TODO

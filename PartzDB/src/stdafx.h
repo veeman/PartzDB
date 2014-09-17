@@ -14,6 +14,9 @@
 #include "qintsingleapplication.h"
 
 extern const char*  STR_VERSION;
+extern const char*  STR_CFG_NOTFOUND;  
+extern const char*  STR_CFG_FAILED;  
+extern const char*  STR_CFG_LOADED;  
 
 extern const char** QLOGGERVIEW_FONT;
 extern quint32      QLOGGERVIEW_FONT_SIZE;

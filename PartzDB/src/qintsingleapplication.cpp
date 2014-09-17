@@ -7,6 +7,17 @@ QIntSingleApplication::QIntSingleApplication(int &argc, char **argv, bool GUIena
 
 }
 
+QIntSingleApplication::~QIntSingleApplication()
+{
+  internalSystemTray.free();
+  internalConfig.free();
+  internalLogger.free();
+}
+
+QString QIntSingleApplication::buildRelativeFilePath(const QString &fileName)
+{
+  return qApp->applicationDirPath() + '/' + fileName;
+}
 
 /*!
   \fn QIntSingleApplication::registerMessageHandle

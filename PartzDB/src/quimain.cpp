@@ -15,7 +15,7 @@ QUiMain::QUiMain(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
-    ui.listView->setModel(&(*qApp->internalLogger));
+    //ui.listView->setModel(&(*qApp->internalLogger));
 }
 
 /*!

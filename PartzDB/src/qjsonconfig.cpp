@@ -55,7 +55,5 @@ void QJsonConfig::setData(const QJsonObject &config)
 void QJsonConfig::setFileName(const QString &fileName)
 {
   if (!fileName.isEmpty())
-  {
-    _fileName = '.'+fileName;
-  }
+    _fileName = qApp->buildRelativeFilePath(fileName);
 }
