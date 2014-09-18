@@ -16,6 +16,7 @@
 QUiAbout::QUiAbout(QWidget *parent)
   : QWidget(parent, Qt::SplashScreen | Qt::FramelessWindowHint)
 {
+  _closable = false;
   setAttribute(Qt::WA_DeleteOnClose);
 
   _background.load(*QUIABOUT_BGRES);
@@ -29,7 +30,7 @@ QUiAbout::QUiAbout(QWidget *parent)
 }
 
 /*!
-  Destroys the about widget.
+    Destroys the about widget.
 */
 QUiAbout::~QUiAbout()
 {
@@ -37,7 +38,7 @@ QUiAbout::~QUiAbout()
 }
 
 /*!
-  This event handler is reimplemented and draws the default about widget layout.
+    This event handler is reimplemented and draws the default about widget layout.
 */
 void QUiAbout::paintEvent(QPaintEvent * event)
 {
@@ -62,10 +63,44 @@ void QUiAbout::paintEvent(QPaintEvent * event)
 }
 
 /*!
-  Displays the \a message at the bottom of the widget.
+    This event handler is reimplemented and closes the window.
+*/
+void QUiAbout::keyPressEvent(QKeyEvent * event)
+{
+  if (_closable)
+    close();
+}
+
+/*!
+    This event handler is reimplemented and closes the window.
+*/
+void QUiAbout::mousePressEvent(QMouseEvent * event)
+{
+  if (_closable)
+    close();
+}
+
+/*!
+    Displays the \a message at the bottom of the widget.
 */
 void QUiAbout::showMessage(const QString &message)
 {
   _infoMessage = message;
   update();
 }
+
+/*!
+    \fn QUiAbout::setClosable(bool close)
+
+    Set closable state.
+
+    \param close true if window is closable by esc or mouse click.
+*/
+
+/*!
+    \fn QUiAbout::closable() const
+
+    Returns closable state.
+
+    \sa QUiAbout::setClosable(bool close)
+*/

@@ -17,8 +17,9 @@ public:
     INIT,
     CONFIG,
     PLUGINS,
-    SETUP,
+    TRAY,
     MAINWINDOW,
+    SETUP,
     DONE
   };
 
@@ -32,9 +33,9 @@ public slots:
   void instanceMessage(const QString &message);
 
 private:
-  LoadState _state;
-  quint32 _progress;
-  quint32 _max;
+  LoadState _state;   //!< Current loading state
+  quint32 _progress;  //!< Loading progress value
+  quint32 _max;       //!< Maximum progress value
 };
 
 inline QUiAppLoader::LoadState& operator++(QUiAppLoader::LoadState &v)

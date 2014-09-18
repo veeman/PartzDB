@@ -23,8 +23,16 @@ int main(int argc, char *argv[]);
 */
 static bool sendInstanceMessage(void);
 
+/*!
+    \brief This function prints out debug messages, warnings, critical and fatal error messages.
+    \sa qInstallMessageHandler
+*/
+void applicationMessageOutput(QtMsgType type, const QMessageLogContext &ctx, const QString &msg);
+
 int main(int argc, char *argv[])
 {
+    qInstallMessageHandler(applicationMessageOutput);
+
     QScopedPointer<QIntSingleApplication> app(new QIntSingleApplication(argc, argv));
     if (sendInstanceMessage())
       return 0x420; // already running
@@ -48,4 +56,11 @@ static bool sendInstanceMessage(void)
   const QString argMsg = argList.join(" ");
 
   return qApp->sendMessage(argMsg);
+}
+
+void applicationMessageOutput(QtMsgType type, const QMessageLogContext &ctx, const QString &msg)
+{
+  QString f = QString("Error in File %0@%1\n\tFunction: %2\n\tMessage: %3\n")
+                  .arg(ctx.file).arg(ctx.line).arg(ctx.function).arg(msg);
+  OutputDebugStringA(f.toLocal8Bit().data());
 }

@@ -20,11 +20,11 @@ public:
   QString error() const;
 
 protected:
-  QJsonObject _configData;
+  QJsonObject _configData;  //!< Internal JSON structure
 
 private:
-  QJsonParseError _error;
-  QString _fileName;
+  QJsonParseError _error;   //!< Error state of last loaded file
+  QString _fileName;        //!< Current selected filename
 };
 
 inline QString QJsonConfig::fileName() const

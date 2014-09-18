@@ -14,7 +14,6 @@ public:
 
   enum Level { Info, Warning, Critical };
   
-
 public slots:
   void log(const Level level, const QString &message, const QString &module);
   void log(const Level level, const QString &message, const QObject *sender = 0);
@@ -58,6 +57,5 @@ inline void QLoggerModel::critical(const QString &message, const QObject *sender
 {
   log(QLoggerModel::Critical, message, sender);
 }
-
 
 #endif // QLOGGERMODEL_H

@@ -1932,7 +1932,7 @@ ENABLE_PREPROCESSING   = YES
 # The default value is: NO.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-MACRO_EXPANSION        = NO
+MACRO_EXPANSION        = YES
 
 # If the EXPAND_ONLY_PREDEF and MACRO_EXPANSION tags are both set to YES then
 # the macro expansion is limited to the macros specified with the PREDEFINED and
@@ -1940,7 +1940,7 @@ MACRO_EXPANSION        = NO
 # The default value is: NO.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-EXPAND_ONLY_PREDEF     = NO
+EXPAND_ONLY_PREDEF     = YES
 
 # If the SEARCH_INCLUDES tag is set to YES the includes files in the
 # INCLUDE_PATH will be searched if a #include is found.
@@ -1972,7 +1972,8 @@ INCLUDE_FILE_PATTERNS  =
 # recursively expanded use the := operator instead of the = operator.
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
-PREDEFINED             = 
+PREDEFINED             = Q_ENUMS(x) \
+                         Q_DISABLE_COPY(x)
 
 # If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then this
 # tag can be used to specify a list of macro names that should be expanded. The
@@ -2010,25 +2011,25 @@ SKIP_FUNCTION_MACROS   = YES
 # the path). If a tag file is not located in the directory in which doxygen is
 # run, you must also specify the path to the tagfile here.
 
-TAGFILES               = C:/Qt/Qt5.3.0/Docs/Qt-5.3/activeqt/activeqt.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtbluetooth/qtbluetooth.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtconcurrent/qtconcurrent.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtcore/qtcore.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtgraphicaleffects/qtgraphicaleffects.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtgui/qtgui.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtnetwork/qtnetwork.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtnfc/qtnfc.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtpositioning/qtpositioning.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtprintsupport/qtprintsupport.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtqml/qtqml.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtquick/qtquick.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtsensors/qtsensors.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtsql/qtsql.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtsvg/qtsvg.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qttestlib/qttestlib.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtwebsockets/qtwebsockets.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtwidgets/qtwidgets.tags=http://qt-project.org/doc/qt-5/ \
-                         C:/Qt/Qt5.3.0/Docs/Qt-5.3/qtxml/qtxml.tags=http://qt-project.org/doc/qt-5/
+TAGFILES               = C:/Qt/Docs/Qt-5.3/activeqt/activeqt.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtbluetooth/qtbluetooth.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtconcurrent/qtconcurrent.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtcore/qtcore.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtgraphicaleffects/qtgraphicaleffects.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtgui/qtgui.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtnetwork/qtnetwork.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtnfc/qtnfc.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtpositioning/qtpositioning.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtprintsupport/qtprintsupport.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtqml/qtqml.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtquick/qtquick.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtsensors/qtsensors.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtsql/qtsql.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtsvg/qtsvg.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qttestlib/qttestlib.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtwebsockets/qtwebsockets.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtwidgets/qtwidgets.tags=http://qt-project.org/doc/qt-5/ \
+                         C:/Qt/Docs/Qt-5.3/qtxml/qtxml.tags=http://qt-project.org/doc/qt-5/
 
 # When a file name is specified after GENERATE_TAGFILE, doxygen will create a
 # tag file that is based on the input files it reads. See section "Linking to

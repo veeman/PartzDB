@@ -12,6 +12,11 @@ public:
   QUiMain(QWidget *parent = 0);
   ~QUiMain();
 
+public slots:
+  void instanceMessage(const QString &message);
+  void on_actionAbout_triggered(bool checked);
+  void on_actionExit_triggered(bool checked);
+  
 private:
   Ui::QUiMainClass ui;  //!< UI layout
 };
