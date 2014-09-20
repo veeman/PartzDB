@@ -14,8 +14,12 @@ public:
 
 public slots:
   void instanceMessage(const QString &message);
-  void on_actionAbout_triggered(bool checked);
+  
+  void on_actionClose_triggered(bool checked);
+  void on_actionCloseAll_triggered(bool checked);
   void on_actionExit_triggered(bool checked);
+  void on_actionLogWindow_triggered(bool checked);
+  void on_actionAbout_triggered(bool checked);
   
 private:
   Ui::QUiMainClass ui;  //!< UI layout

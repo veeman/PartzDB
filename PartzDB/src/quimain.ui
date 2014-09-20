@@ -53,6 +53,7 @@
     <property name="title">
      <string>&amp;View</string>
     </property>
+    <addaction name="actionLogWindow"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
     <property name="title">
@@ -89,20 +90,32 @@
    <property name="text">
     <string>Open ...</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionSave">
    <property name="text">
     <string>Save</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionSaveAs">
    <property name="text">
     <string>Save as ...</string>
    </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
   </action>
   <action name="actionSaveAll">
    <property name="text">
     <string>Save a&amp;ll</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionClose">
@@ -128,6 +141,11 @@
   <action name="actionAbout">
    <property name="text">
     <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionLogWindow">
+   <property name="text">
+    <string>&amp;Log Window</string>
    </property>
   </action>
  </widget>

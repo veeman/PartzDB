@@ -34,7 +34,9 @@ extern const char** QUIABOUT_BGRES;
 
 extern const char** QUIAPPLOADER_STR_INIT;
 extern const char** QUIAPPLOADER_STR_LOADCONFIG;
+extern const char** QUIAPPLOADER_STR_LOADMODULE;
 extern const char** QUIAPPLOADER_STR_LOADMODULES;
+extern const char** QUIAPPLOADER_STR_SETUPMODULES;
 extern const char** QUIAPPLOADER_MODULEPATH;
 extern const char** QUIAPPLOADER_MODULEFILTER;
 

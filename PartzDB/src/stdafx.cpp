@@ -17,7 +17,9 @@ const char* STR_VERSION = "Version: %0 %1";                       //!< TODO
 
 const char* STR_INITIALIZE = "Initalize";                         //!< TODO
 const char* STR_LOAD_CONFIG = "Load Configuration";               //!< TODO
-const char* STR_LOAD_MODULES = "Load Module '%0'\t%1%%";		  //!< TODO
+const char* STR_LOAD_MODULE = "Load Modules";		                  //!< TODO
+const char* STR_LOAD_MODULES = "Load Module '%0'\t%1%";		        //!< TODO
+const char* STR_SETUP_MODULES = "Setup Modules";                  //!< TODO
 
 const char* STR_CFG_NOTFOUND = "Configuration file '%0' not found. Use default settings.";  //!< TODO
 const char* STR_CFG_FAILED = "Failed to load configuration file '%0'. %1";  //!< TODO
@@ -53,9 +55,11 @@ const char** QUIABOUT_BGRES = &RES_IMGSPLASHSCREEN;               //!< TODO
 
 const char** QUIAPPLOADER_STR_INIT = &STR_INITIALIZE;             //!< TODO
 const char** QUIAPPLOADER_STR_LOADCONFIG = &STR_LOAD_CONFIG;      //!< TODO
+const char** QUIAPPLOADER_STR_LOADMODULE = &STR_LOAD_MODULE;	    //!< TODO
 const char** QUIAPPLOADER_STR_LOADMODULES = &STR_LOAD_MODULES;	  //!< TODO
-const char** QUIAPPLOADER_MODULEPATH = &PATH_MODULES;			  //!< TODO
-const char** QUIAPPLOADER_MODULEFILTER = &FILTER_MODULES;		  //!< TODO
+const char** QUIAPPLOADER_STR_SETUPMODULES = &STR_SETUP_MODULES;	//!< TODO
+const char** QUIAPPLOADER_MODULEPATH = &PATH_MODULES;			        //!< TODO
+const char** QUIAPPLOADER_MODULEFILTER = &FILTER_MODULES;		      //!< TODO
 
 
 const char** QSYSTEMTRAY_ICON = &RES_ICON_MAIN;                   //!< TODO

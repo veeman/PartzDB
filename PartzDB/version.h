@@ -7,7 +7,7 @@
 #define VERSION_MAJOR		1
 #define VERSION_MINOR		0
 #define VERSION_REVISION	0
-#define VERSION_BUILD		5
+#define VERSION_BUILD		6
 
 #if _DEBUG
   #if _WIN64
@@ -31,7 +31,7 @@
 #define COMPANYNAME       "mage-dev"
 #define FILEDESCRIPTION   "Easy Project Management"
 #define INTERNALNAME      "PartzDB"
-#define LEGALCOPYRIGHT    "Copyright (c) 2014 www.mage-dev.com"
+#define LEGALCOPYRIGHT    "Copyright (c) 2014 www.mage-dev.de"
 #define ORIGINALFILENAME  "PartzDB.exe" 
 #define PRODUCTNAME       "PartzDB"
 #define FILEVERSN         VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD
