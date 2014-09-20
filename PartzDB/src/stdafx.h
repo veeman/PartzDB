@@ -8,6 +8,7 @@
 
 #include <QtCore/QFile>
 #include <QtCore/QTime>
+#include <QtCore/qglobal.h>
 #include <QtCore/QDebug>
 
 #include <QtSingleApplication>
@@ -17,6 +18,8 @@ extern const char*  STR_VERSION;
 extern const char*  STR_CFG_NOTFOUND;  
 extern const char*  STR_CFG_FAILED;  
 extern const char*  STR_CFG_LOADED;  
+extern const char*  STR_MOD_FAILED;
+extern const char*  STR_MOD_LOADED;
 
 extern const char** QLOGGERVIEW_FONT;
 extern quint32      QLOGGERVIEW_FONT_SIZE;
@@ -31,6 +34,9 @@ extern const char** QUIABOUT_BGRES;
 
 extern const char** QUIAPPLOADER_STR_INIT;
 extern const char** QUIAPPLOADER_STR_LOADCONFIG;
+extern const char** QUIAPPLOADER_STR_LOADMODULES;
+extern const char** QUIAPPLOADER_MODULEPATH;
+extern const char** QUIAPPLOADER_MODULEFILTER;
 
 extern const char** QSYSTEMTRAY_ICON;
 

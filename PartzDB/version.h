@@ -7,19 +7,23 @@
 #define VERSION_MAJOR		1
 #define VERSION_MINOR		0
 #define VERSION_REVISION	0
-#define VERSION_BUILD		4
+#define VERSION_BUILD		5
 
 #if _DEBUG
   #if _WIN64
     #define PLATTFORM "x64 dbg"
+	#define PLATTFORMS "x64d"
   #else
     #define PLATTFORM "x86 dbg"
+	#define PLATTFORMS "x86d"
   #endif
 #else
   #if _WIN64
     #define PLATTFORM "x64"
+	#define PLATTFORMS "x64"
   #else
     #define PLATTFORM "x86"
+	#define PLATTFORMS "x86"
   #endif
 #endif
 

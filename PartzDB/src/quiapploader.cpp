@@ -44,7 +44,7 @@
     Creates a new QUiAppLoader with the given \a parent.
 */
 QUiAppLoader::QUiAppLoader(QWidget *parent)
-  : QUiAbout(parent), _state(PREINIT)
+	: QUiAbout(parent), _state(PREINIT), _progress(-1)
 {
   QTimer::singleShot(0, this, SLOT(processLoading(void)));
 }
@@ -68,11 +68,14 @@ void QUiAppLoader::load(void)
   switch (_state)
   {
     case PREINIT:
-      showMessage(tr(*QUIAPPLOADER_STR_INIT));
+		showMessage(tr(*QUIAPPLOADER_STR_INIT));
+		++_state;
       break;
     case INIT:
-      qApp->internalLogger.set(new QLoggerModel(0));
-      showMessage(tr(*QUIAPPLOADER_STR_LOADCONFIG));
+		qApp->internalLogger.set(new QLoggerModel(0));
+		
+		showMessage(tr(*QUIAPPLOADER_STR_LOADCONFIG));
+		++_state;
       break;
     case CONFIG:
       {
@@ -93,29 +96,89 @@ void QUiAppLoader::load(void)
         else
           qApp->internalLogger->info(
                                 QString(tr(STR_CFG_LOADED)).arg(cfgFileName), this);
+		
+		_progress = -1;
+		++_state;
       }
       break;
-    case PLUGINS:
-      // TODO: Load Plugins
+	case PLUGINS:
+	  {
+		if (_progress < 0)
+		{
+			// generate module list
+			QStringList listFilter(*QUIAPPLOADER_MODULEFILTER);
+			QDir modulePath = QDir(qApp->buildRelativeFilePath(*QUIAPPLOADER_MODULEPATH));
+			modulePath.setNameFilters(listFilter);
+			_modules = modulePath.entryList(QDir::Files, QDir::Name);
+			_progress = 0;
+
+			showMessage(QString(tr(*QUIAPPLOADER_STR_LOADMODULES)).arg(_modules[0]).arg(0)); // TODO: fix show, if no module is found
+		}
+		else
+		if (_progress < _modules.count())
+		{ 
+			// load all modules
+			QString modFileName = QString(*QUIAPPLOADER_MODULEPATH) + "/" + _modules[_progress];
+			QString modFilePath = qApp->buildRelativeFilePath(modFileName);
+
+			QPluginLoader loader(modFileName);
+			QString moduleIID = loader.metaData()["IID"].toString();
+			
+			QObject *moduleObj = loader.instance();
+			
+			if (moduleObj)
+			{
+				QIntSingleApplication::ModuleEntry modEntry(moduleObj, _modules[_progress]);
+				qApp->internalModuleList.push_back(modEntry);
+
+				qApp->internalLogger->info(
+					QString(tr(STR_MOD_LOADED)).arg(_modules[_progress]), this);
+			}
+			else
+				qApp->internalLogger->critical(
+					QString(tr(STR_MOD_FAILED)).arg(_modules[_progress]), this);
+
+			showMessage(QString(tr(*QUIAPPLOADER_STR_LOADMODULES)).arg(_modules[0]).arg(0)); // TODO: fix show
+			++_progress;
+		}
+		else
+		{
+		  // move to next init state
+		  ++_state;
+		  _progress = -1;
+		}
+	  }
       break;
     case TRAY:
-      qApp->internalSystemTray.set(new QSystemTrayIcon(QIcon(*QSYSTEMTRAY_ICON)));
-      qApp->internalSystemTray->setVisible(true);
+		qApp->internalSystemTray.set(new QSystemTrayIcon(QIcon(*QSYSTEMTRAY_ICON)));
+		qApp->internalSystemTray->setVisible(true);
+		++_state;
       break;
     case MAINWINDOW:
       {
         QUiMain *win = new QUiMain();
         qApp->registerMessageHandle(win, SLOT(instanceMessage(const QString &)));
         win->show();
+		++_state;
       }
       break;
     case SETUP:
-      // TODO: Setup Plugins
+		if (_progress < 0)
+		{
+			_progress = 0;
+		}
+		else
+		if (_progress < qApp->internalModuleList.count())
+		{
+			// TODO: init modules
+		}
+		else
+			++_state;
       break;
     default:
+		++_state;
       break;
   }
-  ++_state;
 }
 
 /*!

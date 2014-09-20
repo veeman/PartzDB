@@ -1,14 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PartzDB", "PartzDB\PartzDB.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
 	ProjectSection(ProjectDependencies) = postProject
+		{42798060-1E00-452D-929E-988F5D875C98} = {42798060-1E00-452D-929E-988F5D875C98}
 		{F5A070EC-587F-4EEA-AD55-92D623220DD9} = {F5A070EC-587F-4EEA-AD55-92D623220DD9}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtSingleApplication", "QtSingleApplication\QtSingleApplication.vcxproj", "{F5A070EC-587F-4EEA-AD55-92D623220DD9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "modSearch", "modSearch\modSearch.vcxproj", "{42798060-1E00-452D-929E-988F5D875C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +27,10 @@ Global
 		{F5A070EC-587F-4EEA-AD55-92D623220DD9}.Debug|Win32.Build.0 = Debug|Win32
 		{F5A070EC-587F-4EEA-AD55-92D623220DD9}.Release|Win32.ActiveCfg = Release|Win32
 		{F5A070EC-587F-4EEA-AD55-92D623220DD9}.Release|Win32.Build.0 = Release|Win32
+		{42798060-1E00-452D-929E-988F5D875C98}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42798060-1E00-452D-929E-988F5D875C98}.Debug|Win32.Build.0 = Debug|Win32
+		{42798060-1E00-452D-929E-988F5D875C98}.Release|Win32.ActiveCfg = Release|Win32
+		{42798060-1E00-452D-929E-988F5D875C98}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,9 +23,12 @@ public:
 
     QMetaObject::Connection registerMessageHandle(const QObject *receiver, const char *member);
 
+	typedef QPair<QObject*, QString> ModuleEntry;
+
     QPrivateApplicationPointer<QLoggerModel>    internalLogger;     //!< Global application logger
     QPrivateApplicationPointer<QJsonConfig>     internalConfig;     //!< Global application config
     QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray; //!< Global application tray
+	QVector<ModuleEntry>						internalModuleList; //!< Global application module list
 };
 
 inline 

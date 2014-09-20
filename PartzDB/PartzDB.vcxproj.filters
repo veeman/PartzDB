@@ -147,6 +147,9 @@
     <ClInclude Include="src\qprivateapplicationpointer.h">
       <Filter>Header Dateien</Filter>
     </ClInclude>
+    <ClInclude Include="src\qmodinterfaces.h">
+      <Filter>Header Dateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PartzDB.rc" />
