@@ -29,6 +29,7 @@ public:
     QPrivateApplicationPointer<QLoggerModel> internalLogger;     //!< Global application logger
     QPrivateApplicationPointer<QJsonConfig> internalConfig;     //!< Global application config
     QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray; //!< Global application tray
+    QPrivateApplicationPointer<QNetworkAccessManager> internalNetworkManager;  //!< Global network manager
 	  QVector<ModuleEntry> internalModuleList; //!< Global application module list
     QUiMain *internalMainWindow; //!< Global application main window, auto delete by qt
 };

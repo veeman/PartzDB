@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QResultOctoItem</class>
+ <widget class="QWidget" name="QResultOctoItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>537</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>QResultOctoItem</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTreeWidget" name="treeWidget">
+     <column>
+      <property name="text">
+       <string>Distributor</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>SKU</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Stock</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Currency</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>x1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>x100</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>x1000</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

@@ -11,6 +11,8 @@
 #include <QtCore/qglobal.h>
 #include <QtCore/QDebug>
 
+#include <QtNetwork/QNetworkAccessManager>
+
 #include <QtSingleApplication>
 #include "qintsingleapplication.h"
 

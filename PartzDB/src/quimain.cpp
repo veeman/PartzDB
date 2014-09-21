@@ -40,11 +40,21 @@ void QUiMain::instanceMessage(const QString &message)
 }
 
 /*!
+  Event handler of close tab button.
+*/
+void QUiMain::on_tabWidget_tabCloseRequested(int index)
+{
+  QWidget *widget = ui.tabWidget->widget(index);
+  ui.tabWidget->removeTab(index);
+  widget->deleteLater();
+}
+
+/*!
   Event handler of close menu.
 */
 void QUiMain::on_actionClose_triggered()
 {
-
+  on_tabWidget_tabCloseRequested(ui.tabWidget->currentIndex());
 }
 
 /*!
@@ -52,7 +62,8 @@ void QUiMain::on_actionClose_triggered()
 */
 void QUiMain::on_actionCloseAll_triggered()
 {
-
+  for (int i = ui.tabWidget->count(); i>=0; --i)
+    on_tabWidget_tabCloseRequested(i);
 }
 
 /*!
@@ -70,13 +81,14 @@ void QUiMain::on_actionExit_triggered()
 void QUiMain::on_actionLogWindow_triggered()
 {
   // show logging window, create one if not exist
-  QUiLog *log = findChild<QUiLog*>();
+  QUiLog *log = ui.tabWidget->findChild<QUiLog*>();
   if (!log)
   {
-    log = new QUiLog(this);
+    log = new QUiLog(ui.tabWidget);
+    ui.tabWidget->addTab(log, log->windowTitle());
   }
 
-  log->show();
+  ui.tabWidget->setCurrentWidget(log);
 }
 
 /*!

@@ -17,6 +17,7 @@ public:
 public slots:
   void instanceMessage(const QString &message);
   
+  void on_tabWidget_tabCloseRequested(int index);
   void on_actionClose_triggered();
   void on_actionCloseAll_triggered();
   void on_actionExit_triggered();

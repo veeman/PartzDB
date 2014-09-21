@@ -1,8 +1,9 @@
 #include "stdafx.h"
 #include "qmodsearch.h"
+#include "quifetchoctopart.h"
 
 QModSearch::QModSearch()
-  : _menuSearch(0)
+  : _menuSearch(0), _networkAccessManager(0), _tabWidget(0)
 {
 
 }
@@ -10,6 +11,16 @@ QModSearch::QModSearch()
 QModSearch::~QModSearch()
 {
 
+}
+
+void QModSearch::setTabWidget(QTabWidget *widget)
+{
+  _tabWidget = widget;
+}
+
+void QModSearch::setNetworkManager(QNetworkAccessManager *nam)
+{
+  _networkAccessManager = nam;
 }
 
 void QModSearch::populateMenu(QMenuBar *menu)
@@ -25,5 +36,7 @@ void QModSearch::populateMenu(QMenuBar *menu)
 
 void QModSearch::on_menuSearch_triggered()
 {
-  // add widget
+  QUiFetchOctopart *search = new QUiFetchOctopart(_tabWidget, _networkAccessManager);
+  _tabWidget->addTab(search, search->windowTitle());
+  _tabWidget->setCurrentWidget(search);
 }

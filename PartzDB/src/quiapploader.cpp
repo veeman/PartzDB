@@ -76,6 +76,7 @@ void QUiAppLoader::load(void)
     break;
   case INIT:
     qApp->internalLogger.set(new QLoggerModel(0));
+    qApp->internalNetworkManager.set(new QNetworkAccessManager(0));
 
     showMessage(tr(*QUIAPPLOADER_STR_LOADCONFIG));
     ++_state;
@@ -204,10 +205,18 @@ void QUiAppLoader::load(void)
       if (_progress < qApp->internalModuleList.count())
       {
         QObject *mod = qApp->internalModuleList[_progress].first; 
-        
+    
+        QIModNetwork *iNetwork = qobject_cast<QIModNetwork*>(mod);
+        if (iNetwork)
+          iNetwork->setNetworkManager(&(*qApp->internalNetworkManager));
+
         QIModMainMenu *iMainMenu = qobject_cast<QIModMainMenu*>(mod);
         if (iMainMenu)
           iMainMenu->populateMenu(qApp->internalMainWindow->ui.menuBar);
+
+        QIModTabWidget *iTabWidget = qobject_cast<QIModTabWidget*>(mod);
+        if (iTabWidget)
+          iTabWidget->setTabWidget(qApp->internalMainWindow->ui.tabWidget);
 
         ++_progress;
       }

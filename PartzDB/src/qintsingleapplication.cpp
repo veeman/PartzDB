@@ -26,6 +26,7 @@ QIntSingleApplication::~QIntSingleApplication()
 {
   internalSystemTray.free();
   internalConfig.free();
+  internalNetworkManager.free();
   internalLogger.free();
 }
 
