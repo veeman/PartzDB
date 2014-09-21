@@ -42,7 +42,7 @@ void QUiMain::instanceMessage(const QString &message)
 /*!
   Event handler of close menu.
 */
-void QUiMain::on_actionClose_triggered(bool checked)
+void QUiMain::on_actionClose_triggered()
 {
 
 }
@@ -50,7 +50,7 @@ void QUiMain::on_actionClose_triggered(bool checked)
 /*!
   Event handler of close menu.
 */
-void QUiMain::on_actionCloseAll_triggered(bool checked)
+void QUiMain::on_actionCloseAll_triggered()
 {
 
 }
@@ -58,7 +58,7 @@ void QUiMain::on_actionCloseAll_triggered(bool checked)
 /*!
   Event handler of exit menu.
 */
-void QUiMain::on_actionExit_triggered(bool checked)
+void QUiMain::on_actionExit_triggered()
 {
   // shutdown application
   close();
@@ -67,7 +67,7 @@ void QUiMain::on_actionExit_triggered(bool checked)
 /*!
   Event handler of log window menu.
 */
-void QUiMain::on_actionLogWindow_triggered(bool checked)
+void QUiMain::on_actionLogWindow_triggered()
 {
   // show logging window, create one if not exist
   QUiLog *log = findChild<QUiLog*>();
@@ -82,7 +82,7 @@ void QUiMain::on_actionLogWindow_triggered(bool checked)
 /*!
   Event handler of about menu.
 */
-void QUiMain::on_actionAbout_triggered(bool checked)
+void QUiMain::on_actionAbout_triggered()
 {
   // show about window, create one if not exist
   QUiAbout *about = findChild<QUiAbout*>();

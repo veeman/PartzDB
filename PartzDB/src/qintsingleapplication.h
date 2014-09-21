@@ -2,9 +2,10 @@
 #define QINTSINGLEAPPLICATION_H
 
 #include <QtSingleApplication>
-#include "qloggermodel.h"
-#include "qjsonconfig.h"
 #include "qprivateapplicationpointer.h"
+#include "qjsonconfig.h"
+#include "qloggermodel.h"
+#include "quimain.h"
 
 #if defined(qApp)
 #undef qApp
@@ -25,10 +26,11 @@ public:
 
 	typedef QPair<QObject*, QString> ModuleEntry;
 
-    QPrivateApplicationPointer<QLoggerModel>    internalLogger;     //!< Global application logger
-    QPrivateApplicationPointer<QJsonConfig>     internalConfig;     //!< Global application config
+    QPrivateApplicationPointer<QLoggerModel> internalLogger;     //!< Global application logger
+    QPrivateApplicationPointer<QJsonConfig> internalConfig;     //!< Global application config
     QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray; //!< Global application tray
-	QVector<ModuleEntry>						internalModuleList; //!< Global application module list
+	  QVector<ModuleEntry> internalModuleList; //!< Global application module list
+    QUiMain *internalMainWindow; //!< Global application main window, auto delete by qt
 };
 
 inline 

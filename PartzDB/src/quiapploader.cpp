@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "quiapploader.h"
 #include "quimain.h"
+#include "qmodinterfaces.h"
+#include "qloggermodel.h"
+#include "qjsonconfig.h"
 
 /*!
   \class QUiAppLoader
@@ -185,9 +188,9 @@ void QUiAppLoader::load(void)
     break;
   case MAINWINDOW: // *****************************************************************************
     {
-      QUiMain *win = new QUiMain();
-      qApp->registerMessageHandle(win, SLOT(instanceMessage(const QString &)));
-      win->show();
+      qApp->internalMainWindow = new QUiMain();
+      qApp->registerMessageHandle(qApp->internalMainWindow, SLOT(instanceMessage(const QString &)));
+      qApp->internalMainWindow->show();
       ++_state;
     }
     break;
@@ -200,7 +203,12 @@ void QUiAppLoader::load(void)
     else
       if (_progress < qApp->internalModuleList.count())
       {
-        // TODO: setup modules
+        QObject *mod = qApp->internalModuleList[_progress].first; 
+        
+        QIModMainMenu *iMainMenu = qobject_cast<QIModMainMenu*>(mod);
+        if (iMainMenu)
+          iMainMenu->populateMenu(qApp->internalMainWindow->ui.menuBar);
+
         ++_progress;
       }
       else

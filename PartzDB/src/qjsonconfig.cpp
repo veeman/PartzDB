@@ -99,9 +99,7 @@ QJsonObject QJsonConfig::data(const QString &path) const
 */
 void QJsonConfig::setData(const QJsonObject &config, const QString &path)
 {
-  qDebug() << _configData;
   modifyJsonValue(_configData, path, config);
-  qDebug() << _configData;
 }
 
 /*!

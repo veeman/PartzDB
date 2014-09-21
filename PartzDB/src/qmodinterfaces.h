@@ -2,15 +2,25 @@
 #define QMODINTERFACES_H
 
 #include <QtPlugin>
+#include <QtWidgets/QMenuBar>
 
-class QAppModTabWidget
+class QIModTabWidget
 {
-	public:
-		virtual ~QAppModTabWidget() {}
+public:
+  virtual ~QIModTabWidget() {}
 };
 
-#define QAppModTabWidgetIid "org.partzdb.modules.tabwidget"
+class QIModMainMenu
+{
+public:
+  virtual ~QIModMainMenu() {}
+  virtual void populateMenu(QMenuBar *menu) = 0;
+};
 
-Q_DECLARE_INTERFACE(QAppModTabWidget, QAppModTabWidgetIid)
+#define QIModTabWidgetIid "org.partzdb.modules.tabwidget"
+#define QIModMainMenuIid  "org.partzdb.modules.mainmenu"
+
+Q_DECLARE_INTERFACE(QIModTabWidget, QIModTabWidgetIid)
+Q_DECLARE_INTERFACE(QIModMainMenu, QIModMainMenuIid)
 
 #endif // QMODINTERFACES_H
