@@ -13,13 +13,15 @@ public:
   bool save(const QString &fileName = QString());
 
   void setFileName(const QString &fileName = QString());
-  void setData(const QJsonObject &config);
+  void setData(const QJsonObject &config, const QString &path = QString());
 
   QString fileName() const;
-  QJsonObject data() const;
+  QJsonObject data(const QString &path = QString()) const;
   QString error() const;
 
 protected:
+  void modifyJsonValue(QJsonObject& obj, const QString& path, const QJsonObject& newValue);
+
   QJsonObject _configData;  //!< Internal JSON structure
 
 private:
@@ -30,11 +32,6 @@ private:
 inline QString QJsonConfig::fileName() const
 {
   return _fileName;
-}
-
-inline QJsonObject QJsonConfig::data() const
-{
-  return _configData;
 }
 
 inline QString QJsonConfig::error() const

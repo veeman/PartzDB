@@ -20,6 +20,10 @@ extern const char*  STR_CFG_FAILED;
 extern const char*  STR_CFG_LOADED;  
 extern const char*  STR_MOD_FAILED;
 extern const char*  STR_MOD_LOADED;
+extern const char*  STR_MOD_DISABLED;
+
+extern const char*  CFG_MODULES;
+extern const char*  CFG_ENABLED;
 
 extern const char** QLOGGERVIEW_FONT;
 extern quint32      QLOGGERVIEW_FONT_SIZE;

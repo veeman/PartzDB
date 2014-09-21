@@ -119,26 +119,46 @@ void QUiAppLoader::load(void)
       else
         if (_progress < _modules.count())
         {
-          // load module
+          // retrive module path
+          bool shouldLoad = false;
           QString modFileName = QString(*QUIAPPLOADER_MODULEPATH) + "/" + _modules[_progress];
           QString modFilePath = qApp->buildRelativeFilePath(modFileName);
-
           QPluginLoader loader(modFileName);
-          QString moduleIID = loader.metaData()["IID"].toString(); // TODO: process loading?
 
-          QObject *moduleObj = loader.instance();
-
-          if (moduleObj)
+          { // get module configuration
+            QString moduleIID = loader.metaData()["IID"].toString();
+            QString modConfigPath = QString("%0/%1").arg(CFG_MODULES).arg(moduleIID);
+            QJsonObject modConfig = qApp->internalConfig->data(modConfigPath);
+            if (modConfig[CFG_ENABLED].isNull())
+            {
+              modConfig[CFG_ENABLED] = shouldLoad;
+              // TODO: show message new plugin found.
+            }
+            else
+              shouldLoad = modConfig[CFG_ENABLED].toBool();
+            qApp->internalConfig->setData(modConfig, modConfigPath);
+          }
+  
+          // load module
+          if (shouldLoad)
           {
-            QIntSingleApplication::ModuleEntry modEntry(moduleObj, _modules[_progress]);
-            qApp->internalModuleList.push_back(modEntry);
+            QObject *moduleObj = loader.instance();
 
-            qApp->internalLogger->info(
-              QString(tr(STR_MOD_LOADED)).arg(_modules[_progress]), this);
+            if (moduleObj)
+            {
+              QIntSingleApplication::ModuleEntry modEntry(moduleObj, _modules[_progress]);
+              qApp->internalModuleList.push_back(modEntry);
+
+              qApp->internalLogger->info(
+                QString(tr(STR_MOD_LOADED)).arg(_modules[_progress]), this);
+            }
+            else
+              qApp->internalLogger->critical(
+                QString(tr(STR_MOD_FAILED)).arg(_modules[_progress]), this);
           }
           else
-            qApp->internalLogger->critical(
-            QString(tr(STR_MOD_FAILED)).arg(_modules[_progress]), this);
+            qApp->internalLogger->warning(
+              QString(tr(STR_MOD_DISABLED)).arg(_modules[_progress]), this);
 
           // goto next module
           ++_progress;

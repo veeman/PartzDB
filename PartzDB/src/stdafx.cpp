@@ -21,11 +21,15 @@ const char* STR_LOAD_MODULE = "Load Modules";		                  //!< TODO
 const char* STR_LOAD_MODULES = "Load Module '%0'\t%1%";		        //!< TODO
 const char* STR_SETUP_MODULES = "Setup Modules";                  //!< TODO
 
+const char *CFG_MODULES = "modules";                              //!< TODO
+const char *CFG_ENABLED = "enabled";                              //!< TODO
+
 const char* STR_CFG_NOTFOUND = "Configuration file '%0' not found. Use default settings.";  //!< TODO
 const char* STR_CFG_FAILED = "Failed to load configuration file '%0'. %1";  //!< TODO
-const char* STR_CFG_LOADED = "Configuration file '%0' loaded.";  //!< TODO
-const char* STR_MOD_FAILED = "Failed to load module '%0'";  //!< TODO
-const char* STR_MOD_LOADED = "Module '%0' loaded.";  //!< TODO
+const char* STR_CFG_LOADED = "Configuration file '%0' loaded.";             //!< TODO
+const char* STR_MOD_FAILED = "Failed to load module '%0'";                  //!< TODO
+const char* STR_MOD_LOADED = "Module '%0' loaded.";                         //!< TODO
+const char *STR_MOD_DISABLED = "Module '%0' disabled";                      //!< TODO
 
 // resources and file path
 const char* RES_IMGSPLASHSCREEN = ":/res/splash.png";             //!< TODO
@@ -34,7 +38,7 @@ const char* RES_ICON_INFO = ":/res/info.png";                     //!< TODO
 const char* RES_ICON_WARNING = ":/res/warning.png";               //!< TODO
 const char* RES_ICON_CRITICAL = ":/res/critical.png";             //!< TODO
 const char* PATH_CONFIG = "config.json";                          //!< TODO
-const char* PATH_MODULES = "modules";							  //!< TODO
+const char* PATH_MODULES = "modules";							                //!< TODO
 const char* FILTER_MODULES = "mod*" PLATTFORMS LIBRARY_EXTENSION; //!< TODO
 
 // font family
