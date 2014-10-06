@@ -255,5 +255,3 @@ void QUiAppLoader::instanceMessage(const QString &message)
 {
   // TODO: buffer messeges
 }
-
-

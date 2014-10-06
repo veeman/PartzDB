@@ -1,16 +1,19 @@
 /*!
-    \file stdafx.cpp
+    \file PartzDB/src/stdafx.cpp
 */
 #include "stdafx.h"
 #include "version.h"
 
+/*!
+  Library extension depend on the destination platform
+*/
 #ifdef Q_OS_WIN
 	#define LIBRARY_EXTENSION ".dll"
 #else
 	#define LIBRARY_EXTENSION ".so"
 #endif
 
-// Strings
+// strings
 const char* STR_TIMEFORMAT = "hh:mm:ss.zzz";                      //!< TODO
 const char* STR_UNKNOWN = "unknown";                              //!< TODO
 const char* STR_VERSION = "Version: %0 %1";                       //!< TODO
@@ -64,7 +67,6 @@ const char** QUIAPPLOADER_STR_LOADMODULES = &STR_LOAD_MODULES;	  //!< TODO
 const char** QUIAPPLOADER_STR_SETUPMODULES = &STR_SETUP_MODULES;	//!< TODO
 const char** QUIAPPLOADER_MODULEPATH = &PATH_MODULES;			        //!< TODO
 const char** QUIAPPLOADER_MODULEFILTER = &FILTER_MODULES;		      //!< TODO
-
 
 const char** QSYSTEMTRAY_ICON = &RES_ICON_MAIN;                   //!< TODO
 

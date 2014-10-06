@@ -44,6 +44,9 @@
      <string>&amp;File</string>
     </property>
     <widget class="QMenu" name="menuNew">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="title">
       <string>New ...</string>
      </property>
@@ -67,6 +70,9 @@
     <addaction name="actionLogWindow"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>&amp;Settings</string>
     </property>

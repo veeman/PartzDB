@@ -30,6 +30,7 @@ void QModSearch::populateMenu(QMenuBar *menu)
   {
     _menuSearch = new QAction("&Search (octopart.com)", this);
     menuNew->addAction(_menuSearch);
+    menuNew->setEnabled(true);
     connect(_menuSearch, SIGNAL(triggered()), this, SLOT(on_menuSearch_triggered()));
   }
 }

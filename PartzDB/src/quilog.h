@@ -13,7 +13,7 @@ public:
 	~QUiLog();
 
 private:
-	Ui::QUiLog ui;
+	Ui::QUiLog ui; //!< UI layout
 };
 
 #endif // QUILOG_H

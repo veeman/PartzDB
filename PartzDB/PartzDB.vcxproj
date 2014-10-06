@@ -42,6 +42,7 @@
     <TargetName>$(ProjectName)$(PlatformShortName)d</TargetName>
     <IncludePath>./../QtSingleApplication/src;$(IncludePath)</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);..\_lib</LibraryPath>
+    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)_app\bin\</OutDir>

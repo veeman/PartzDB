@@ -8,7 +8,7 @@
 #include "quimain.h"
 
 #if defined(qApp)
-#undef qApp
+  #undef qApp
 #endif
 #define qApp (static_cast<QIntSingleApplication*>(QCoreApplication::instance()))
 
@@ -24,14 +24,21 @@ public:
 
     QMetaObject::Connection registerMessageHandle(const QObject *receiver, const char *member);
 
-	typedef QPair<QObject*, QString> ModuleEntry;
+	  typedef QPair<QObject*, QString> ModuleEntry;
+        //!< Association of plugin classe and the plugin IID 
 
-    QPrivateApplicationPointer<QLoggerModel> internalLogger;     //!< Global application logger
-    QPrivateApplicationPointer<QJsonConfig> internalConfig;     //!< Global application config
-    QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray; //!< Global application tray
-    QPrivateApplicationPointer<QNetworkAccessManager> internalNetworkManager;  //!< Global network manager
-	  QVector<ModuleEntry> internalModuleList; //!< Global application module list
-    QUiMain *internalMainWindow; //!< Global application main window, auto delete by qt
+    QPrivateApplicationPointer<QLoggerModel> internalLogger;    
+        //!< Global application logger
+    QPrivateApplicationPointer<QJsonConfig> internalConfig;     
+        //!< Global application config
+    QPrivateApplicationPointer<QSystemTrayIcon> internalSystemTray; 
+        //!< Global application tray
+    QPrivateApplicationPointer<QNetworkAccessManager> internalNetworkManager;
+        //!< Global network manager
+	  QVector<ModuleEntry> internalModuleList; 
+        //!< Global application module list
+    QUiMain *internalMainWindow; 
+        //!< Global application main window, auto delete by qt
 };
 
 inline 
